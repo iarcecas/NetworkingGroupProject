@@ -4,11 +4,11 @@ import os
 
 def download_file(url, pathname):
     """
-    Download a file from a given URL and save it with the specified filename.
+    Download a file from a given URL and save it with the specified filepath.
 
-    Args:
-        url (str): The URL of the file to download.
-        filename (str): The filename to save the downloaded file as.
+    Arguments:
+        url: The URL of the file to download.
+        pathname: The path to save the file.
 
     Returns:
         str: The path to the downloaded file.
@@ -18,10 +18,8 @@ def download_file(url, pathname):
         with open(pathname, 'wb') as f:
             f.write(response.content)
         print("File downloaded successfully:", pathname)
-        return pathname
     else:
-        print("File not available:", url)
-        return None
+        print("File not available:", url)        
 
 # Example usage:
 if __name__ == "__main__":
