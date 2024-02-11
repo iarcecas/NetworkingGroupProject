@@ -21,35 +21,6 @@ def download_file(url, pathname):
     else:
         print("File not available:", url)
 
-def download_images_sequentially(urls, directory="Images"):
-    """
-    Download a set of images sequentially from a list of URLs.
-
-    Arguments:
-        urls: A list of URLs of the images to download.
-        directory: The directory path where the images will be saved. Default is "Images".
-
-    Returns:
-        list: A list of paths to the downloaded images.
-    """
-    downloaded_paths = []
-
-    
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-
-    # Iterate over the URLs
-    for i, url in enumerate(urls, start=1):
-        # Construct the file path
-        filename = f"{i}.jpg"
-        filepath = os.path.join(directory, filename)
-        
-        # Download the image and append the path to the list of downloaded paths
-        download_file(url, filepath)
-        downloaded_paths.append(filepath)
-
-    return downloaded_paths
-
 def invoke_download_function():
     """
     Invoke the function to download a set of images sequentially and measure the elapsed time.
@@ -85,10 +56,19 @@ def invoke_download_function():
         'https://th.bing.com/th/id/OIP.MksSZEmu5Cgly2HNvRp4NQAAAA?w=180&h=163&c=7&r=0&o=5&pid=1.7',
         'https://th.bing.com/th/id/OIP.HCpPn-IRV8SVidBlRoBRUwHaE7?w=287&h=191&c=7&r=0&o=5&pid=1.7'
         ]
-        
 
-    # Call the function to download images sequentially
-    download_images_sequentially(urls)
+    # Start timer
+    start_time = time.perf_counter()
+
+    # Iterate over the URLs
+    for i, url in enumerate(urls, start=1):
+        # Construct the file path
+        filename = f"{i}.jpg"
+        directory = "Images"
+        filepath = os.path.join(directory, filename)
+        
+        # Download the image
+        download_file(url, filepath)
 
     # End timer
     end_time = time.perf_counter()
