@@ -4,16 +4,16 @@
 #Student ID: 301253910
 
 #Name: Ignacio Arce
-#Student ID: 
+#Student ID: 301264338
 
 #Name: Sebastian Tipan
-#Student ID: 
+#Student ID: 301264991
 
 #Name: Susmita Roy
-#Student ID:
+#Student ID: 301207557
 
 #Course: COMP216-008
-#Date: Feb 25, 2024
+#Date: Feb 15, 2024
 
 import requests
 import argparse
